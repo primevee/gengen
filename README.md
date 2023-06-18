@@ -1,2 +1,4 @@
-# C programming notes and points
-This repository brings to you several C notes and hints which are relatively unknown and very much unused.
+# Coding on Phone
+First README file for a linux environment on phone
+
+## Trying out in another device
