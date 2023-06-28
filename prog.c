@@ -43,7 +43,7 @@ void parse_line(char *line, size_t size, int command_counter, char **av)
 
 	token_count = 0;
 	if (isatty(STDIN_FILENO) == 1)
-	write(STDOUT_FILENO, ">$ ", 3);
+	write(STDOUT_FILENO, "~$ ", 3);
 	read_len = getline(&line, &size, stdin);
 	if (read_len != -1)
 	{
