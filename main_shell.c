@@ -46,7 +46,7 @@ void parse_line(char *line, size_t size, int command_counter, char **av)
 	read_len = getline(&line, &size, stdin);
 	if (read_len != -1)
 	{
-		param_array = get_root(line, delim, token_count);
+		param_array = getRoot(line, delim, token_count);
 		if (param_array[0] == NULL)
 		{
 			_free(2, param_array, line);
@@ -54,7 +54,7 @@ void parse_line(char *line, size_t size, int command_counter, char **av)
 		}
 		i = builtin(param_array, line);
 		if (i == -1)
-			create_child(param_array, line, command_counter, av);
+			_child(param_array, line, command_counter, av);
 		for (i = 0; param_array[i] != NULL; i++)
 			free(param_array[i]);
 		_free(2, param_array, line);
@@ -63,11 +63,11 @@ void parse_line(char *line, size_t size, int command_counter, char **av)
 		exit_cmd(line);
 }
 /**
- * path_finder - find the full path of a program.
+ * pFinder - find the full path of a program.
  * @command: Represents a command. For example ls, clear.
  * Return: an string with the full path of the program.
  */
-char *path_finder(char *command)
+char *pFinder(char *command)
 {
 	char *str = "PATH";
 	char *constructed;
@@ -75,12 +75,12 @@ char *path_finder(char *command)
 	int index;
 	char *directory;
 
-	index = find_path(str);
+	index = _findPath(str);
 	path_tokens = split_path(index, str);
 	if (path_tokens == NULL)
 		return (NULL);
 
-	directory = search_dir(path_tokens, command);
+	directory = _dirs(path_tokens, command);
 	if (directory == NULL)
 	{
 		_free2(path_tokens);
@@ -100,12 +100,12 @@ char *path_finder(char *command)
 }
 
 /**
- * find_path - Finds the index of an environmental variable.
+ * _findPath - Finds the index of an environmental variable.
  * @str: Environmental variable that needs to be found.
  * Return: Upon success returns the index of the environmental variable.
  * otherwise returns -1.
  */
-int find_path(char *str)
+int _findPath(char *str)
 {
 	int i;
 	int len;
@@ -142,7 +142,7 @@ char *env_var;
 	len = _strlen(str);
 	token_count = 0;
 	env_var = environ[index] + (len + 1);
-	path_tokens = get_root(env_var, delim, token_count);
+	path_tokens = getRoot(env_var, delim, token_count);
 	if (path_tokens == NULL)
 		return (NULL);
 	return (path_tokens);

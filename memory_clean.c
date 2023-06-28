@@ -51,12 +51,12 @@ void _free(int n, ...)
 
 
 /**
- * printing_err - Prints a message of error when a comand is not found.
+ * printErr - Prints a message of error when a comand is not found.
  * @count: number of commands run on the shell.
  * @av: The name of the program running the shell.
  * @command: specific command.
  */
-void printing_err(char *av, int count, char *command)
+void printErr(char *av, int count, char *command)
 {
 	print_str(av, 1);
 	print_str(": ", 1);
@@ -66,15 +66,15 @@ void printing_err(char *av, int count, char *command)
 }
 
 /**
- * exec_err - Prints exec errors.
+ * execErr - Prints exec errors.
  * @av: The name of the program running the shell.
  * @count: how many commands have been entered.
  * @tmp_command: The command that filed.
  */
 
-void exec_err(char *av, int count, char *tmp_command)
+void execErr(char *av, int count, char *tmp_command)
 {
-	printing_err(av, count, tmp_command);
+	printErr(av, count, tmp_command);
 	print_str(": ", 1);
 	perror("");
 	exit(1);

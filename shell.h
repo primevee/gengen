@@ -27,16 +27,16 @@ typedef struct builtin_d
 
 extern char **environ;
 
-char **get_root(char *, const char *, int);
-int count_parts(char *, const char *);
+char **getRoot(char *, const char *, int);
+int pCount(char *, const char *);
 char **split(int, char *, const char *);
-void create_child(char **, char *, int, char **);
+void _child(char **, char *, int, char **);
 void parse_line(char *, size_t, int, char **);
-char *path_finder(char *);
+char *pFinder(char *);
 int _strlen(char *);
-int find_path(char *);
+int _findPath(char *);
 char **split_path(int, char *);
-char *search_dir(char **, char *);
+char *_dirs(char **, char *);
 char *build_path(char *, char *);
 void _free2(char **);
 void _free(int, ...);
@@ -55,7 +55,7 @@ int print_number(int);
 int _write_char(char);
 
 /* Helper functions*/
-void printing_err(char *, int, char *);
-void exec_err(char *, int, char *);
+void printErr(char *, int, char *);
+void execErr(char *, int, char *);
 
 #endif
