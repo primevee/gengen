@@ -1,8 +1,8 @@
 #include "shell.h"
 /**
- * _strlen - Calculates the lenght of a string.
- * @str: String that needs length to be found.
- * Return: the length of a string. otherwise 0.
+ * _strlen - Calculates the string length
+ * @str: String whose length is calculated
+ * Return: length of string, otherwise 0.
  */
 int _strlen(char *str)
 {
@@ -17,7 +17,7 @@ int _strlen(char *str)
 
 /**
  * _free2 - Free double pointer variables.
- * @to_be_freed: The address of the elements that need to be freed.
+ * @to_be_freed: address of elements to be freed.
  */
 void _free2(char **to_be_freed)
 {
@@ -29,7 +29,7 @@ void _free2(char **to_be_freed)
 }
 
 /**
- * _free - free a pointers to a string.
+ * _free - free pointers to a string.
  * @n: The number of pointers to free.
  */
 void _free(int n, ...)
@@ -51,10 +51,10 @@ void _free(int n, ...)
 
 
 /**
- * printErr - Prints a message of error when a comand is not found.
- * @count: number of commands run on the shell.
- * @av: The name of the program running the shell.
- * @command: specific command.
+ * printErr - Prints a error message when<F11> command is not found.
+ * @count: number of commands run on the shell
+ * @av: The name of the program running the shell
+ * @command: specific command
  */
 void printErr(char *av, int count, char *command)
 {

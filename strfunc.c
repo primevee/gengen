@@ -42,7 +42,7 @@ char *_strdup(char *src)
 
 /**
  * print_str - Prints a string.
- * @str: String to be printed. If the string is NULL it will print (null)
+ * @str: String to be printed. Prints Null if string is NULL
  * @new_line: If integer is 0 a new line will be printed.
  */
 void print_str(char *str, int new_line)

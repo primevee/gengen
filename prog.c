@@ -1,11 +1,12 @@
 #include "shell.h"
 
 /**
- * main - Entry point of the program.
- * @ac: The number of parameters passed
- * @av: The name of the program.
- * Return: Always 0.
+ * main - Programs entry point
+ * @ac: Number of parameters passed
+ * @av: Name of the program
+ * Return: 0
  */
+
 int main(__attribute__((unused)) int ac, char **av)
 {
 	char *line;
@@ -26,11 +27,11 @@ int main(__attribute__((unused)) int ac, char **av)
 }
 
 /**
- * parse_line -split the command line
- * @line: A pointer to a string.
- * @size: size of the commands
- * @command_counter: represent how many command are in the line
- * @av: Name of the program running the shell
+ * parse_line - function that splits the command line
+ * @line: A pointer to a string
+ * @size: the size of the command
+ * @command_counter: number of commands in the line
+ * @av: Name of the program that runs the shell
  */
 void parse_line(char *line, size_t size, int command_counter, char **av)
 {
@@ -42,7 +43,7 @@ void parse_line(char *line, size_t size, int command_counter, char **av)
 
 	token_count = 0;
 	if (isatty(STDIN_FILENO) == 1)
-	write(STDOUT_FILENO, "$ ", 2);
+	write(STDOUT_FILENO, ">$ ", 3);
 	read_len = getline(&line, &size, stdin);
 	if (read_len != -1)
 	{
@@ -62,10 +63,11 @@ void parse_line(char *line, size_t size, int command_counter, char **av)
 	else
 		exit_cmd(line);
 }
+
 /**
- * pFinder - find the full path of a program.
- * @command: Represents a command. For example ls, clear.
- * Return: an string with the full path of the program.
+ * pFinder - find the full path
+ * @command: Represents a command
+ * Return: string with the full program path
  */
 char *pFinder(char *command)
 {
@@ -100,9 +102,9 @@ char *pFinder(char *command)
 }
 
 /**
- * _findPath - Finds the index of an environmental variable.
- * @str: Environmental variable that needs to be found.
- * Return: Upon success returns the index of the environmental variable.
+ * _findPath - Finds index of env variable
+ * @str: Env variable
+ * Return: Upon success, returns the index of the env variable,
  * otherwise returns -1.
  */
 int _findPath(char *str)
@@ -127,9 +129,9 @@ int _findPath(char *str)
 
 /**
  * split_path - Separate a string in an array of directories
- * @index: Index  the path in the environment variables.
- * @str: string to separate and tokenize.
- * Return: an array of pointer to strings.
+ * @index: Index of the path in the env variables
+ * @str: string to tokenize
+ * Return: array of pointer to strings
  */
 char **split_path(int index, char *str)
 {

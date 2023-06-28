@@ -1,11 +1,10 @@
 #include "shell.h"
 
 /**
- * _dirs - Function that search through directories in path_tokens for a
- * specific file.
- * @path_parts: A pointer to an array of strings.
- * @command: Represents a command given by the user.
- * Return: On Success a string  Otherwise returns NULL.
+ * _dirs - Function that search through directories
+ * @path_parts: Pointer to an array of strings
+ * @command: Command given by the user.
+ * Return: On Success a string  Otherwise returns NUL
  */
 char *_dirs(char **path_parts, char *command)
 {

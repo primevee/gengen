@@ -1,13 +1,11 @@
 #include "shell.h"
 
 /**
- * _child - Creates a child process in order to execute another program.
- * @arg: An array of pointers to strings containing the possible name
- * of a program and its parameters. This array is NULL terminated.
- * @input: The contents of the read line.
- * @count: A counter keeping track of how many commands have been entered
- * into the shell.
- * @av: Name of the program running the shell
+ * _child - Creates a child process
+ * @arg: An array of pointers to strings;  NULL terminated
+ * @input: The contents of the read line
+ * @count: Inputted command counter
+ * @av: program running the shell
  */
 void _child(char **arg, char *input, int count, char **av)
 {
@@ -50,13 +48,11 @@ void _child(char **arg, char *input, int count, char **av)
 }
 
 /**
- * getRoot - Meant to interact with other token functions, and make
- * them more accessible to other parts of the program.
- * @input: A string containing the raw user input.
- * @delim: A constant string containing the desired delimeter to tokenize line.
- * @parts_count: A holder for the amount of tokens in a string.
- * Return: Upon success an array of tokens representing the command. Otherwise
- * returns NULL.
+ * getRoot - Interacts with other token functions, and make
+ * @input: user input
+ * @delim: delimeter to tokenize line
+ * @parts_count: holds number of tokens in a string
+ * Return: upon success, array of tokens. Otherwise NULL
  */
 char **getRoot(char *input, const char *delim, int parts_count)
 {
@@ -79,13 +75,12 @@ char **getRoot(char *input, const char *delim, int parts_count)
 }
 
 /**
- * split - Separates a string into an array of tokens. DON'T FORGET TO FREE
- * on receiving function when using tokenize.
- * @parts_count: An integer representing the amount of tokens in the array.
- * @input: String that is separated by an specified delimeter
- * @delim: The desired delimeter to separate tokens.
- * Return: Upon success a NULL terminated array of pointer to strings.
- * Otherwise returns NULL.
+ * split - Separates a string into array of tokens
+ * @parts_count: amount of tokens in the array
+ * @input: String separated by a delimeter
+ * @delim: delimeter to separate tokens
+ * Return: Upon success, a NULL terminated array of pointer to strings.
+ * Otherwise returns NULL
  */
 char **split(int parts_count, char *input, const char *delim)
 {
